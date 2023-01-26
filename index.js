@@ -230,7 +230,7 @@ else{
  const friend1={name:"Tom",friend:"Rock"}
  const friend2={name:"Rock",friend:"Tom"}
  function isBestFriend(friend1,friend2){
-if(friend1.name===friend2.friend){
+if((friend1.name===friend2.friend)&&(friend1.friend===friend2.name)){
  return true;
 }
 else{
@@ -266,3 +266,48 @@ function descendingOrder(n){
     return console.log( digits);
   }
   descendingOrder(23532);
+
+//   Implement the function unique_in_order which takes as argument a sequence and returns a list of items without any elements with the same value next to each other and preserving the original order of elements.
+
+function uniqueInOrder(it){
+    const result=[];
+    for(let i=0;i<it.length;i++){
+        if(it[i]!==it[i+1]){
+            result.push(it[i])
+        }
+    }
+    return console.log(result);
+}
+uniqueInOrder('ABCDEFGHIJKLM');
+
+
+
+// A Narcissistic Number (or Armstrong Number) is a positive number which is the sum of its own digits, each raised to the power of the number of digits in a given base. In this Kata, we will restrict ourselves to decimal (base 10).
+
+
+function narcissistic(value){
+    const intergerSet=value.toString().split('').map(Number);
+    const pow=intergerSet.length;
+    const sum=intergerSet.reduce((total,item)=>total+Math.pow(item,pow),0);
+ return sum ==value   
+}
+
+console.log(narcissistic(153));
+
+
+
+// Welcome. In this kata, you are asked to square every digit of a number and concatenate them.
+
+function squarDigits(num){
+    let number=num.toString();
+    let arr =number.split('');
+    let squareArr=[];
+
+   for(let i=0; i<arr.length; i++){
+   let int=parseInt(arr[i]);
+ let result =Math.pow(int,2);
+   squareArr.push(result);
+   }
+   return Number(squareArr.join(''));
+}
+console.log(squarDigits(123));
