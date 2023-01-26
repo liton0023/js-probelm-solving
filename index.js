@@ -311,3 +311,77 @@ function squarDigits(num){
    return Number(squareArr.join(''));
 }
 console.log(squarDigits(123));
+
+
+
+// Task
+// Given an integral number, determine if it's a square number:
+
+// In mathematics, a square number or perfect square is an integer that is the square of an integer; in other words, it is the product of some integer with itself.
+
+// The tests will always use some integral number, so don't worry about that in dynamic typed languages.
+
+function squerNumber(num){
+if((Math.sqrt(num)%1)==0){
+    return true;
+}
+else{
+    return false;
+}
+}
+squerNumber(4);
+
+
+// we want to find a positive integer k, if it exists, such that the sum of the digits of n taken to the successive powers of p is equal to k * n.
+// In other words
+
+
+function digPow(n,p){
+    let str=String(n);
+    let add=0;
+    str.split('').forEach(num=>{
+        add+=Math.pow(Number(num),p);
+        p++;
+    });
+    return (add%n)?-1 :add/n
+}
+console.log(digPow(46288,3));
+
+// ATM machines allow 4 or 6 digit PIN codes and PIN codes cannot contain anything but exactly 4 digits or exactly 6 digits.
+
+// If the function is passed a valid PIN string, return true, else return false.
+
+const validatePIN = pin => {
+    //return true or false
+    let n = pin.length 
+    if (n !=4 && n !=6) return false // rule out anything not 4/6 chars long
+    for (let i in pin){
+      if (pin[i] > '9' || pin[i] < '0') return false // exclude !charCodeAt val for 0-9
+    }
+    return true
+  }
+
+console.log(validatePIN(-1.234));
+
+
+// Write a function that takes in a string of one or more words, and returns the same string, but with all five or more letter words reversed (Just like the name of this Kata). Strings passed in will consist of only letters and spaces. Spaces will be included only when more than one word is present.
+
+
+function spinWords(backward){
+
+    var sentence = " ";
+    var separate = backward.split(" ");
+   
+    for (let i=0; i < separate.length; i++){
+         sentence+=" ";
+      if (separate[i].length >= 1){
+      sentence += separate[i].split("").reverse().join("");
+      }
+     else {
+     sentence += separate[i];
+     }
+    }
+   return sentence;
+   }
+   
+  console.log(spinWords("Hey fellow warriors"));
